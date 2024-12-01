@@ -85,3 +85,9 @@ where (clb.MACLB = ct.MACLB) and (ct.MAQG <> 'VN')
 group by TENCLB
 having count (MACT) >=2
 
+
+
+
+Truy vấn con với EXISTS
+Lượng từ EXISTS được sử dụng kết hợp với truy vấn con dưới dạng:
+WHERE [NOT] EXISTS (truy_vấn_con)
