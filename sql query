@@ -73,4 +73,15 @@ order by 2 DESC--cot thu 2
 
 
 
+--having
+Mệnh đề HAVING thường không thực sự có nghĩa nếu như không sử dụng kết
+hợp với mệnh đề GROUP BY. Một điểm khác biệt giữa HAVING và WHERE là trong điều kiện
+của WHERE không được có các hàm gộp trong khi HAVING lại cho phép sử dụng các hàm gộp
+trong điều kiện của mình
+Ví dụ: Tìm ra những câu lạc bộ có số lượng cầu thủ nước ngoài lớn hơn 2.
+select TENCLB , count(MACT)as [Số lượng cẩu
+thủ] from CAULACBO clb,CAUTHU ct
+where (clb.MACLB = ct.MACLB) and (ct.MAQG <> 'VN')
+group by TENCLB
+having count (MACT) >=2
 
