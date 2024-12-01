@@ -86,8 +86,53 @@ group by TENCLB
 having count (MACT) >=2
 
 
-
+Định nghĩa bảng có hai khóa chính: primary key
+Create table HLV_CLB(
+MAHLV varchar(5) not null,
+MACLB varchar(5) not null,
+VAITRO nvarchar(100) not null,
+constraint chk_primarykey primary key (MAHLV,MACLB)
 
 Truy vấn con với EXISTS
 Lượng từ EXISTS được sử dụng kết hợp với truy vấn con dưới dạng:
 WHERE [NOT] EXISTS (truy_vấn_con)
+
+
+
+
+
+
+--reference
+CREATE TABLE customers (
+    customer_id INT PRIMARY KEY,
+    customer_name VARCHAR(100)
+);
+
+CREATE TABLE orders (
+    order_id INT PRIMARY KEY,
+    order_date DATE,
+    customer_id INT,
+    CONSTRAINT fk_customer
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+);
+
+
+
+--constraint
+alter table HLV_CLB
+add constraint chk_descriptionlength CHECK (len(description) > 10)
+
+
+
+
+
+
+
+
+
+
+
+=======================================================
+view and proc
