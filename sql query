@@ -1,0 +1,7 @@
+sql 
+create table abc(
+
+);
+
+alter table tablename
+add colname varchar(5) not null
