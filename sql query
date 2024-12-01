@@ -5,3 +5,72 @@ create table abc(
 
 alter table tablename
 add colname varchar(5) not null
+
+--câu lạc bộ có tên bắt đầu bằng chữ T trong bảng
+select *
+from CAULACBO as CLB
+where CLB.TENCLB like 'T%'
+
+insert into tablename values()
+
+--update
+update tablename
+set colname = ' '
+where colname like ' '
+
+--delete
+delete tablename where colname = ' '
+
+--declare
+declare @SLCauLacBo int
+select @SLCauLacBo= count(*)
+from CAULACBO
+print @SLCauLacBo
+
+--comment
+/*   */
+--
+
+--DML
+select    from
+
+
+case colname when a then b else c
+end as ... from tablename
+
+select HOTEN, DIACHI, case GENDER
+when 1 then 'NAM' else N'NỮ'
+end as [GIỚI TÍNH]
+from CAUTHU
+
+select distinct
+
+select top  n colname as ... from tablename
+
+-- Hiển thị họ tên, ngày sinh theo định dạng dd/MM/yyyy và địa chỉ của các cầu thủ có tuổi
+lớn hơn 20
+select HOTEN,
+convert (varchar, NGAYSINH, 103) as NGAYSINH,
+DIACHI from CAUTHU
+where year(getdate()) - year(NGAYSINH) > 20
+
+--between
+select HOTEN,
+convert (varchar, NGAYSINH, 103) as NGAYSINH,
+DIACHI from CAUTHU
+where year(getdate()) - year(NGAYSINH) between 20 and 25
+
+--in subset
+select HOTEN,
+convert (varchar, NGAYSINH, 103) as NGAYSINH,
+DIACHI from CAUTHU
+where MACT in (4,6,7)
+
+
+select HOTEN, year(getdate())- year(NGAYSINH) as AGE,
+VITRI from CAUTHU
+order by 2 DESC--cot thu 2
+
+
+
+
