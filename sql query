@@ -126,7 +126,13 @@ add constraint chk_descriptionlength CHECK (len(description) > 10)
 
 
 
-
+CREATE TABLE OrderDetails (
+    OrderID INT,
+    ProductID INT,
+    DetailID INT,
+    PRIMARY KEY (DetailID),
+    FOREIGN KEY (OrderID, ProductID) REFERENCES Orders (OrderID, ProductID)
+);
 
 
 
